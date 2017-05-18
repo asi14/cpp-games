@@ -1,10 +1,19 @@
 #include <iostream>
 #include <string>
-using namespace std;
-int gen(){ //will generate the the randomized word, out of an array instantiated in main
+#include <vector>
+#include <ctime>
+#include <cstdlib>
 
+using namespace std;
+
+int gen(){
+	srand(time(NULL));
+	int select = rand()%10;
+	return select;
 }
 int main(){
-    //to do with while loop?
-    //recursion?
+	string arr[] = {"hello","world","bye","michele","ubuntu","vim","master","race","trains","like"};
+	std::string rando = arr[gen()];
+	std::cout << rando << endl;
+	return 0;
 }
