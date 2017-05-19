@@ -13,8 +13,14 @@ int gen(){
 }
 
 string parseOutput(std::string random, std::string output, std::string test){
+	std::string temp = "";
 	for(int i = 0; i < random.length(); i++){
-		if(random.at(i)==test.at(0)){cout << "true" << endl;}	
+		if(random.at(i)==test.at(0)){
+			temp += output.substr(0,i);
+			temp += test;
+			temp += output.substr(i+1,random.length());
+			output = temp;	
+		}	
 	}
 	return output;	
 }
