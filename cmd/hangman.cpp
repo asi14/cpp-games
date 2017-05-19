@@ -24,7 +24,7 @@ int process(std::string random){
 	}
 	int i = 10;
 	bool test = false;
-	while(i > 0 || test == false){
+	while(i > 0 and test == false){
 		std::string test;
 		std::cout << "enter a character" << endl;
 		std::getline(std::cin, test);
