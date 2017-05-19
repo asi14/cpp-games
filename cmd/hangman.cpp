@@ -13,7 +13,9 @@ int gen(){
 }
 
 string parseOutput(std::string random, std::string output, std::string test){
-	std::cout << "hello world" << endl;
+	for(int i = 0; i < random.length(); i++){
+		if(random.at(i)==test.at(0)){cout << "true" << endl;}	
+	}
 	return output;	
 }
 
