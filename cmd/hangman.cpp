@@ -13,9 +13,9 @@ int gen(){
 }
 
 string parseOutput(std::string random, std::string output, std::string test){
-	std::string temp = "";
-	for(int i = 0; i < random.length(); i++){
-		if(random.at(i)==test.at(0)){
+		for(int i = 0; i < random.length(); i++){
+		if(random.at(i)==test.at(0) and output.at(i) == '*'){
+			std::string temp = "";
 			temp += output.substr(0,i);
 			temp += test;
 			temp += output.substr(i+1,random.length());
@@ -31,23 +31,26 @@ int process(std::string random){
 		output+="*";	
 	}
 	int i = 10;
-	bool test = false;
-	while(i > 0 and test == false){
+	bool testa = false;
+	while(i > 0 and testa == false){
 		std::string test;
 		std::cout << "enter a character" << endl;
 		std::getline(std::cin, test);
-		if(random.find(test)==std::string::npos){
+		if(test.length() > 1){std::cout << "invalid input" << endl;}
+		else if(random.find(test)==std::string::npos){
 			std::cout << "the char is not there\n" << "You have " << i-1 << " chances left\n" << "here is your current hint\n" << output << endl;
 			i--;	
 		}
 		else{
-			std::cout << test << "was found\n" << "here is your current hint\n" << endl;
+			std::cout << test << "was found\n" << "here is your current hint" << endl;
 			output = parseOutput(random, output, test);
 			std::cout << output << endl;			
 		}
+		if(output == random){
+			testa = true;
+		}
 	}
-	std::cout << output << endl;
-	std::cout << random << endl;
+	if(testa == true){std::cout << "you win" << endl;}
 	return 0;	
 }
 
