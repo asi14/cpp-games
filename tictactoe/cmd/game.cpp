@@ -7,6 +7,7 @@ int input(int (*rep)[3][3], int i, int a, int input){
 	(*rep)[i][a]=input;
 	return 0;
 }
+
 //0 for no winner, 1 for cpu, 2 for user. requires later testing for ties
 int  validate(int (*rep)[3][3]){
 	int output = 0;
@@ -47,7 +48,16 @@ int main(){
 		{0,0,0},
 		{0,0,0}	
 	};
-	printBoard(&board);
+	bool test = true;
+	while(test){
+		cout << "enter coords" << endl;
+		int i;
+		cin >> i;
+		int a;
+		cin >> a;
+		input(&board, i, a, 2),
+		printBoard(&board);	
+	}
 	//int (*rep)[3][3] = &board;
 	return 0;
 
