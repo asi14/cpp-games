@@ -16,24 +16,24 @@ int input(int (*rep)[3][3], int i, int a, int input){
 //needs bugtesting
 int validate(int (*rep)[3][3]){
 	int output = 0;
-	if((*rep)[0][0]==(*rep)[0][1]==(*rep)[0][2]==1){cout<<"a";output = 1;}
-	if((*rep)[0][0]==(*rep)[0][1]==(*rep)[0][2]==2){cout<<"b";output = 2;}
-	if((*rep)[1][0]==(*rep)[1][1]==(*rep)[1][2]==1){cout<<"c";output = 1;}
-	if((*rep)[1][0]==(*rep)[1][1]==(*rep)[1][2]==2){cout<<"d";output = 2;}
-	if((*rep)[2][0]==(*rep)[2][1]==(*rep)[2][2]==1){cout<<"e";output = 1;}
-	if((*rep)[2][0]==(*rep)[2][1]==(*rep)[2][2]==2){cout<<"f";output = 2;}
+	if((*rep)[0][0]== 1 && (*rep)[0][1]== 1 && (*rep)[0][2]==1){cout<<"a";output = 1;}
+	if((*rep)[0][0]== 2 && (*rep)[0][1]== 2 && (*rep)[0][2]==2){cout<<"b";output = 2;}
+	if((*rep)[1][0]== 1 && (*rep)[1][1]== 1 && (*rep)[1][2]==1){cout<<"c";output = 1;}
+	if((*rep)[1][0]== 2 && (*rep)[1][1]== 2 && (*rep)[1][2]==2){cout<<"d";output = 2;}
+	if((*rep)[2][0]== 1 && (*rep)[2][1]== 1 && (*rep)[2][2]==1){cout<<"e";output = 1;}
+	if((*rep)[2][0]== 2 && (*rep)[2][1]== 2 && (*rep)[2][2]==2){cout<<"f";output = 2;}
 
-	if((*rep)[0][0]==(*rep)[1][0]==(*rep)[2][0]==1){cout<<"g";output = 1;}
-	if((*rep)[0][0]==(*rep)[1][0]==(*rep)[2][0]==2){cout<<"h";output = 2;}
-	if((*rep)[0][1]==(*rep)[1][1]==(*rep)[2][1]==1){cout<<"i";output = 1;}
-	if((*rep)[0][1]==(*rep)[1][1]==(*rep)[2][1]==2){cout<<"j";output = 2;}
-	if((*rep)[0][2]==(*rep)[1][2]==(*rep)[2][2]==1){cout<<"k";output = 1;}
-	if((*rep)[0][2]==(*rep)[1][2]==(*rep)[2][2]==2){cout<<"l";output = 2;}
+	if((*rep)[0][0]== 1 && (*rep)[1][0]== 1 && (*rep)[2][0]==1){cout<<"g";output = 1;}
+	if((*rep)[0][0]== 2 && (*rep)[1][0]== 2 && (*rep)[2][0]==2){cout<<"h";output = 2;}
+	if((*rep)[0][1]== 1 && (*rep)[1][1]== 1 && (*rep)[2][1]==1){cout<<"i";output = 1;}
+	if((*rep)[0][1]== 2 && (*rep)[1][1]== 2 && (*rep)[2][1]==2){cout<<"j";output = 2;}
+	if((*rep)[0][2]== 1 && (*rep)[1][2]== 1 && (*rep)[2][2]==1){cout<<"k";output = 1;}
+	if((*rep)[0][2]== 2 && (*rep)[1][2]== 2 && (*rep)[2][2]==2){cout<<"l";output = 2;}
 
-	if((*rep)[0][0]==(*rep)[1][1]==(*rep)[2][2]==1){cout<<"m";output=1;}
-	if((*rep)[0][0]==(*rep)[1][1]==(*rep)[2][2]==2){cout<<"n";output=2;}
-	if((*rep)[0][2]==(*rep)[1][1]==(*rep)[2][0]==1){cout<<"o";output=1;}
-	if((*rep)[0][2]==(*rep)[1][1]==(*rep)[2][0]==2){cout<<"p";output=2;}
+	if((*rep)[0][0]== 1 && (*rep)[1][1]== 1 && (*rep)[2][2]==1){cout<<"m";output=1;}
+	if((*rep)[0][0]== 2 && (*rep)[1][1]== 2 && (*rep)[2][2]==2){cout<<"n";output=2;}
+	if((*rep)[0][2]== 1 && (*rep)[1][1]== 1 && (*rep)[2][0]==1){cout<<"o";output=1;}
+	if((*rep)[0][2]== 2 && (*rep)[1][1]== 2 && (*rep)[2][0]==2){cout<<"p";output=2;}
 
 	return output;
 }
