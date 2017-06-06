@@ -5,11 +5,29 @@ using namespace std;
 
 int cpuCalc(int (*rep)[3][3]){
 //need some advice	
+/*
+algorithim structure:
+
+1) create array of possible moves, which ones lead to failure, and how many moves out of it
+2) create recursive function that goes through each of the scenarios (they will all branch out)
+3) determine from there a situation that will lead to a win scenario (or a tie scenario) in the least number of moves
+*/
+
 }
 
 int input(int (*rep)[3][3], int i, int a, int input){
 	(*rep)[i][a]=input;
 	return 0;
+}
+
+bool isFull(int (*rep)[3][3]){
+	bool test = true;
+	for(int i = 0; i < (*rep).length; i++){
+		for(int a=i; a < (*rep)[0].length; a++){
+			if((*rep)[i][a] == 0){test = false;}	
+		}	
+	}	
+	return test;
 }
 
 //0 for no winner, 1 for cpu, 2 for user. requires later testing for ties
@@ -35,8 +53,11 @@ int validate(int (*rep)[3][3]){
 	if((*rep)[0][2]== 1 && (*rep)[1][1]== 1 && (*rep)[2][0]==1){cout<<"o";output=1;}
 	if((*rep)[0][2]== 2 && (*rep)[1][1]== 2 && (*rep)[2][0]==2){cout<<"p";output=2;}
 
+	if (isFull((*rep)) == false and output == 0){output = 3;}
+
 	return output;
 }
+
 int printBoard(int (*rep)[3][3]){
 	for(int i = 0; i < 3; i++){
 		for(int a = 0; a < 3; a++){
@@ -49,9 +70,9 @@ int printBoard(int (*rep)[3][3]){
 
 int main(){
 	int board[3][3] = {
-		{0,0,0},
-		{0,0,0},
-		{0,0,0}	
+		{1,2,0},
+		{2,1,0},
+		{1,2,0}	
 	};
 	bool test = true;
 	while(test){
@@ -74,6 +95,10 @@ int main(){
 		else if(validate(&board) == 2){
 			cout << "It's a win for the player" << endl;	
 			test = false;
+		}
+		else if(validate(&board) == 3){
+			cout << "it's a tie" << endl;
+			test = false;	
 		}
 	}
 	//int (*rep)[3][3] = &board;
