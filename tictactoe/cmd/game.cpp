@@ -1,8 +1,10 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+//interprets final array from bestWin and determines the best case...?
 int cpuCalc(int (*rep)[3][3]){
 //need some advice	
 /*
@@ -12,9 +14,17 @@ algorithim structure:
 2) create recursive function that goes through each of the scenarios (they will all branch out)
 3) determine from there a situation that will lead to a win scenario (or a tie scenario) in the least number of moves
 */
-
+	
 }
 
+//recursive function that does the hair splitting
+int bestWin(int (*rep)[3][3], int stage){
+	if(validate(rep)==2){return -1;}
+	else if(validate(rep) == 1 or validate(rep) == 3){return stage;}
+	else{
+		
+	}
+}
 int input(int (*rep)[3][3], int i, int a, int input){
 	(*rep)[i][a]=input;
 	return 0;
