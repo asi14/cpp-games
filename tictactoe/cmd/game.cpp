@@ -22,8 +22,8 @@ int input(int (*rep)[3][3], int i, int a, int input){
 
 bool isFull(int (*rep)[3][3]){
 	bool test = true;
-	for(int i = 0; i < (*rep).length; i++){
-		for(int a=i; a < (*rep)[0].length; a++){
+	for(int i = 0; i < 3; i++){
+		for(int a=0; a < 3; a++){
 			if((*rep)[i][a] == 0){test = false;}	
 		}	
 	}	
@@ -53,7 +53,7 @@ int validate(int (*rep)[3][3]){
 	if((*rep)[0][2]== 1 && (*rep)[1][1]== 1 && (*rep)[2][0]==1){cout<<"o";output=1;}
 	if((*rep)[0][2]== 2 && (*rep)[1][1]== 2 && (*rep)[2][0]==2){cout<<"p";output=2;}
 
-	if (isFull((*rep)) == false and output == 0){output = 3;}
+	if (isFull(rep) == true and output == 0){output = 3;}
 
 	return output;
 }
@@ -98,7 +98,8 @@ int main(){
 		}
 		else if(validate(&board) == 3){
 			cout << "it's a tie" << endl;
-			test = false;	
+			printBoard(&board);
+			test=false;
 		}
 	}
 	//int (*rep)[3][3] = &board;
