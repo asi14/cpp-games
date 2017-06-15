@@ -22,7 +22,33 @@ int bestWin(int (*rep)[3][3], int stage){
 	if(validate(rep)==2){return -1;}
 	else if(validate(rep) == 1 or validate(rep) == 3){return stage;}
 	else{
-		
+		int arrLength = 0; //holds arrlength for eventual stage numbers
+		for(int i = 0; i < 3; i++){
+			for(int a = 0; a <3; a++){
+				if((*rep)[i][a]==0){arrLength++;}
+			}	
+		}
+		int stages [arrLength];
+		int stageCount=0;
+		for(int i = 0; i < 3; i++){
+			for(int a = 0; a < 3; a++){
+				if((*rep)[i][a]=0){
+					int duplicate[3][3];
+					for(int c = 0; i < 9; i++){
+						std::copy((*rep)+c,duplicate);
+						if(stage%2==0){copy[i][a]=1;} //this may have to change
+						else{copy[i][a]=2;}
+					}
+					stages[stageCount] = bestWin(duplicate, stage++);
+					stageCount++;	
+				}	
+			}	
+		}
+		int output = stages.length();
+		for(int i = 0; i < stages.length(); i++){
+			if(stages[i] < output){output = stages[i];}	
+		}
+		return output;	
 	}
 }
 int input(int (*rep)[3][3], int i, int a, int input){
