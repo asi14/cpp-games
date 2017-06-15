@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//interprets final array from bestWin and determines the best case...?
+//"master" version of bestWin: holds stage 1 array and from there determines the best case to go for
 int cpuCalc(int (*rep)[3][3]){
 //need some advice	
 /*
@@ -14,7 +14,39 @@ algorithim structure:
 2) create recursive function that goes through each of the scenarios (they will all branch out)
 3) determine from there a situation that will lead to a win scenario (or a tie scenario) in the least number of moves
 */
-	
+	int arrLen = 0;
+	for(int i =0; i < 3; i++){
+		for(int a = 0; a < 3; a++){
+			if((*rep)[i][a]==0){arrLen++;}	
+		}	
+	}
+	int stages [arrLen];
+	int stageCount = 0;
+	for(int i =0; i < 3; i++){
+		for(int a = 0; a < 3; a++){
+			if((*rep)[i][a]==0){
+				int dupli[3][3];
+				for(int d =0; d < 9; d++){
+					std::copy((*rep)+d, dupli);//change here	
+				}
+				copy[i][a]=1;
+				stages[stageCount] = bestWin(dupli,2);	
+			}	
+		}	
+	}
+	int eval = arrLen, movePlace=-5;
+	for(int i = 0; i < arrLen; i++){
+		if(stages[i] < eval and stages[i] > 0){eval=stages[i]; movePlace = i;}
+	}
+	int testMove = 0;
+	for(int i = 0; i < 3; i++){
+		for(int a = 0; a < 3; a++){
+			testMove++;
+			if(testMove==movPlace){input((*rep),i,a,1);}	
+		}	
+	}
+	return 0;
+
 }
 
 //recursive function that does the hair splitting
@@ -36,14 +68,16 @@ int bestWin(int (*rep)[3][3], int stage){
 					int duplicate[3][3];
 					for(int c = 0; i < 9; i++){
 						std::copy((*rep)+c,duplicate);
-						if(stage%2==0){copy[i][a]=1;} //this may have to change
-						else{copy[i][a]=2;}
 					}
+					if(stage%2==0){copy[i][a]=2;} //this may have to change
+					else{copy[i][a]=1;}
+
 					stages[stageCount] = bestWin(duplicate, stage++);
 					stageCount++;	
 				}	
 			}	
 		}
+		//calculates least smount of stages for a win
 		int output = stages.length();
 		for(int i = 0; i < stages.length(); i++){
 			if(stages[i] < output){output = stages[i];}	
