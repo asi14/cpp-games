@@ -208,6 +208,7 @@ int main(){
 	bool test = true;
 	while(test){
 		cpuCalc(board);
+		printBoard(board);
 		cout << "enter coords" << endl;
 		int i;
 		cin >> i;
