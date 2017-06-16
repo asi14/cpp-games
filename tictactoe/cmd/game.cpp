@@ -74,7 +74,7 @@ int bestWin(int (*rep)[3][3], int stage){
 					//copies the values of rep over to duplicate, value by value
 					for(int x = 0; x < 3; x++){
 						for(int y = 0; y < 3; y++){
-							duplicate[x][y]=rep[x][y];	
+							duplicate[x][y]=*rep[x][y];	
 						}	
 					}
 					/*
@@ -123,9 +123,16 @@ algorithim structure:
 		for(int a = 0; a < 3; a++){
 			if((*rep)[i][a]==0){
 				int dupli[3][3];
+				for(int x = 0; x < 3; x++){
+					for(int y = 0; y < 3; y++){
+						dupli[x][y]=*rep[x][y];	
+					}	
+				}
+				/*
 				for(int d =0; d < 9; d++){
 					std::copy((*rep)+d, dupli);//change here	
 				}
+				*/
 				dupli[i][a]=1;
 				stages[stageCount] = bestWin(dupli,2);	
 			}	
