@@ -29,7 +29,7 @@ algorithim structure:
 				for(int d =0; d < 9; d++){
 					std::copy((*rep)+d, dupli);//change here	
 				}
-				copy[i][a]=1;
+				dupli[i][a]=1;
 				stages[stageCount] = bestWin(dupli,2);	
 			}	
 		}	
@@ -42,7 +42,7 @@ algorithim structure:
 	for(int i = 0; i < 3; i++){
 		for(int a = 0; a < 3; a++){
 			testMove++;
-			if(testMove==movPlace){input((*rep),i,a,1);}	
+			if(testMove==movePlace){input((*rep),i,a,1);}	
 		}	
 	}
 	return 0;
@@ -69,8 +69,8 @@ int bestWin(int (*rep)[3][3], int stage){
 					for(int c = 0; i < 9; i++){
 						std::copy((*rep)+c,duplicate);
 					}
-					if(stage%2==0){copy[i][a]=2;} //this may have to change
-					else{copy[i][a]=1;}
+					if(stage%2==0){duplicate[i][a]=2;} //this may have to change
+					else{duplicate[i][a]=1;}
 
 					stages[stageCount] = bestWin(duplicate, stage++);
 					stageCount++;	
@@ -78,8 +78,8 @@ int bestWin(int (*rep)[3][3], int stage){
 			}	
 		}
 		//calculates least smount of stages for a win
-		int output = stages.length();
-		for(int i = 0; i < stages.length(); i++){
+		int output = sizeof(stages);
+		for(int i = 0; i < sizeof(stages); i++){
 			if(stages[i] < output){output = stages[i];}	
 		}
 		return output;	
