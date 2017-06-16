@@ -70,14 +70,22 @@ int bestWin(int (*rep)[3][3], int stage){
 		for(int i = 0; i < 3; i++){
 			for(int a = 0; a < 3; a++){
 				if((*rep)[i][a]=0){
-					int duplicate[3][3];
+					int duplicate[3][3] = {0,0,0,0,0,0,0,0,0};
+					//copies the values of rep over to duplicate, value by value
+					for(int x = 0; x < 3; x++){
+						for(int y = 0; y < 3; y++){
+							duplicate[x][y]=rep[x][y];	
+						}	
+					}
+					/*
 					for(int c = 0; i < 9; i++){
 						std::copy((*rep)+c,duplicate);
 					}
+					*/
 					if(stage%2==0){duplicate[i][a]=2;} //this may have to change
 					else{duplicate[i][a]=1;}
 
-					stages[stageCount] = bestWin(duplicate, stage++);
+					stages[stageCount] = bestWin(duplicate,stage++);
 					stageCount++;	
 				}	
 			}	
