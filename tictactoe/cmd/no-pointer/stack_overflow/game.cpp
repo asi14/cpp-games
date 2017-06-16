@@ -18,7 +18,10 @@ int printBoard(int (rep)[3][3]){
 
 
 int input(int (rep)[3][3], int i, int a, int input){
-	(rep)[i][a]=input;
+	if(rep[i][a] != 0){}
+	else{
+		(rep)[i][a]=input;	
+	}
 	return 0;
 }
 
@@ -81,7 +84,6 @@ int validate(int (rep)[3][3]){
 //end goal of function: reduce a specific scenario of board to a stage number outlining how many moves required until victory
 //or -1, where loss is inevitable
 int bestWin(int (rep)[3][3], int stage){
-	cout << "i got here too" << endl;
 	if(validate(rep)==2){return -1;}
 	else if(validate(rep) == 1 or validate(rep) == 3){return stage;}
 	else{
@@ -101,7 +103,6 @@ int bestWin(int (rep)[3][3], int stage){
 		//runs bestWin again for that function, stage number stored into stages
 		for(int i = 0; i < 3; i++){
 			for(int a = 0; a < 3; a++){
-				cout << "aaaa" << endl;
 				if((rep)[i][a]==0){
 					int duplicate[3][3];
 					//copies the values of rep over to duplicate, value by value
@@ -189,7 +190,11 @@ int cpuCalc(int (rep)[3][3]){
 	int testMove = 0;
 	for(int i = 0; i < 3; i++){
 		for(int a = 0; a < 3; a++){
-			if(testMove==movePlace){input((rep),i,a,1);}	
+			if(testMove==movePlace){
+				cout << "\n" << i << "and" << a << endl;
+				cout << "hello" << endl;
+				input((rep),i,a,1);
+			}	
 			testMove++;
 		}	
 	}
